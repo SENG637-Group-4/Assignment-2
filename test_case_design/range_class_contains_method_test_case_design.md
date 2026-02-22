@@ -25,24 +25,13 @@ Returns true if the specified value is within the range and false otherwise.
 ### Unexpected inputs (U)
 - **U1:** double values not within the lower bound `(value < lower)`  
 - **U2:** double values not within the upper bound `(value > upper)`  
-- **U3:** non-double values (non-numbers, symbols; however, not possible in Java due to compile-time type check)
-
----
-
-## Boundary value analysis
-
-- Range: `lower = 5`, `upper = 95`  
-- NOM: 54  
-- LB: 5  
-- UB: 95  
-- BUB: 94  
-- BLB: 4  
-- AUB: 96  
-- ALB: 6  
+- **U3:** non-double values (non-numbers, symbols; however, not possible in Java due to compile-time type check) 
 
 ---
 
 ## Set of test cases based on equivalence classes and boundary value analysis
+
+Range: `lower = 5`, `upper = 95` 
 
 | Case | Input value | Relevant conditions | Expected Behavior |
 |------|-------------|-------------------|-----------------|
