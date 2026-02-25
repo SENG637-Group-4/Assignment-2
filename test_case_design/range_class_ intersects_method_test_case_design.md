@@ -19,7 +19,7 @@ Returns `true` if the range intersects (overlaps) with the specified range, and 
 - **BUB**: a value just below the upper bound
 - **UB**: the value on the upper boundary
 - **AUB**: a value just above the upper boundary
-- Assume the Range under test is closed interval `Range(-10, 10)`
+- Assume the Range under test is closed interval `[-10, 10]`
 
 ### Lower (`double`)
 
@@ -62,3 +62,4 @@ Returns `true` if the range intersects (overlaps) with the specified range, and 
 | 13        | (1, Double.NaN)               | E3; U2              | `false` – NaN upper bound is undefined                    |
 | 14        | (-10, -10)                    | E2; E7; LB, LB      | `true` – single point exactly at lower bound              |
 | 15        | (10, 10)                      | E4; E9; UB, UB      | `true` – single point exactly at upper bound              |
+
