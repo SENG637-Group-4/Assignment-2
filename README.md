@@ -34,12 +34,18 @@ When designing the test cases, we first identified the valid and invalid inputs 
 
 
 # 3 Test cases developed
+The detailed descriptions of the test cases developed for each test method are provided below:
 
-Text…
+**Range class:**
+- `contains(double value)` - [Test Cases](test_case_design/range_class_contains_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
+- `getLength()` - [Test Cases](test_case_design/range_class_getLength_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
+- `shift(Range base, double delta, boolean allowZeroCrossing)` - [Test Cases](test_case_design/range_class_shift_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
+- `expandToInclude(Range range, double value)` - [Test Cases](test_case_design/range_class_%20expandToInclude_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
+- `intersects(double lower, double upper)` - [Test Cases](test_case_design/range_class_%20intersects_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
 
-// write down the name of the test methods and classes. Organize the based on
-the source code method // they test. identify which tests cover which partitions
-you have explained in the test strategy section //above
+**DataUtilities class:**
+- `createNumberArray(double[] data)` - [Test Cases](test_case_design/data_utilities_createNumberArray_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
+- `createNumberArray2D(double[][] data)` - [Test Cases](test_case_design/data_utilities_createNumberArray2D_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
 
 # 4 How the team work/effort was divided and managed
 
