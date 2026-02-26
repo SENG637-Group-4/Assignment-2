@@ -19,7 +19,19 @@ The `DataUtilities` class provides utility methods that support various data-rel
 
 # 2 Detailed description of unit test strategy
 
-// including the input partitions you have designed
+When designing the test cases, we first identified the valid and invalid inputs for each method parameter. Based on these inputs, we formed equivalence classes and performed boundary value analysis. The detailed test case design for each method is provided below:
+
+**Range class:**
+- `contains(double value)` - [Test Case Design](test_case_design/range_class_contains_method_test_case_design.md)
+- `getLength()` - [Test Case Design](test_case_design/range_class_getLength_method_test_case_design.md)
+- `shift(Range base, double delta, boolean allowZeroCrossing)` - [Test Case Design](test_case_design/range_class_shift_method_test_case_design.md)
+- `expandToInclude(Range range, double value)` - [Test Case Design](test_case_design/range_class_%20expandToInclude_method_test_case_design.md)
+- `intersects(double lower, double upper)` - [Test Case Design](test_case_design/range_class_%20intersects_method_test_case_design.md)
+
+**DataUtilities class:**
+- `createNumberArray(double[] data)` - [Test Case Design](test_case_design/data_utilities_createNumberArray_method_test_case_design.md)
+- `createNumberArray2D(double[][] data)` - [Test Case Design](test_case_design/data_utilities_createNumberArray2D_method_test_case_design.md)
+
 
 # 3 Test cases developed
 
@@ -31,7 +43,21 @@ you have explained in the test strategy section //above
 
 # 4 How the team work/effort was divided and managed
 
-Text…
+We divided the test case design and test generation tasks among ourselves.
+
+After a team member prepared a test case design, the other three members reviewed it. Once the design was successfully approved, the same member proceeded to implement the unit tests based on it. After the unit tests were created, the team conducted another review.
+
+The table below summarizes how the test case design and unit test development tasks were distributed among the team members.
+
+| Method | Member |
+|--------|--------|
+| `Range.expandToInclude()` | Minh |
+| `Range.intersects()` | Minh |
+| `Range.contains()` | Thanoshan |
+| `Range.shift()` | Thanoshan |
+| `Range.getLength()` | Shuvam |
+| `DataUtilities.createNumberArray()` | Shuvam |
+| `DataUtilities.createNumberArray2D()` | Shuvam |
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
