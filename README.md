@@ -61,8 +61,12 @@ The table below summarizes how the test case design and unit test development ta
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
-Text…
+1. Initially, we added the JAR files using absolute paths when setting up the project. However, when another team member cloned the repository, the project did not work on their machine because the paths were machine-specific. To fix this issue, we created a folder named "lib" inside the project, placed all the required JAR files there, and referenced them using relative paths. After this change, the project worked correctly for everyone.
+2. During the initial equivalence class partitioning of the test case design, we considered some unexpected inputs, such as non-numeric values for boolean types. For example, we thought about providing non-boolean values to `allowZeroCrossing` (`boolean`). We included this in the test case design. However, while creating the test cases, we realized that passing non-boolean values to a boolean parameter is not possible in Java due to compile-time type checking.
+
 
 # 6 Comments/feedback on the lab itself
 
-Text…
+1. This assignment has given us a great opportunity to practically learn how to do black box testing using approaches like Equivalence Class Testing, Boundary Value Testing, and Robustness Testing.
+2. We've learnt about popular Java testing framework
+3. The assignment description file is thorough and well-organized, making it easy to understand and follow.
