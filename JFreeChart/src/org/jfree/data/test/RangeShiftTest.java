@@ -35,9 +35,6 @@ public class RangeShiftTest {
     // Expected: InvalidParameterException
     @Test(expected = InvalidParameterException.class)
     public void shiftWithNullBaseThrowsException() {
-        // This test covers: U1 (null base range)
-        // Input: base = null, delta = any, allowZeroCrossing = any
-        // Expected: throws InvalidParameterException
         Range base = null;
         Range.shift(base, 5.0, true);
     }
@@ -47,9 +44,6 @@ public class RangeShiftTest {
     // Expected: Range(-5,5)
     @Test
     public void shiftWithZeroDeltaReturnsUnchangedRange() {
-        // This test covers: E1, E2, E5; NOM
-        // Input: Range(-5,5), delta = 0, allowZeroCrossing = true
-        // Expected: Range(-5,5)
         Range base = new Range(-5, 5);
         Range result = Range.shift(base, 0, true);
         assertEquals("Shifted range lower bound should be -5", 
@@ -63,9 +57,6 @@ public class RangeShiftTest {
     // Expected: Range(-0.1,9.9)
     @Test
     public void shiftWithLowerBoundJustBelowZero() {
-        // This test covers: E1, E3, E6; BLB (lower just below 0)
-        // Input: Range(-5,5), delta = 4.9, allowZeroCrossing = false
-        // Expected: Range(-0.1,9.9)
         Range base = new Range(-5, 5);
         Range result = Range.shift(base, 4.9, false);
         assertEquals("Shifted range lower bound should be -0.1", 
@@ -79,9 +70,6 @@ public class RangeShiftTest {
     // Expected: Range(0,10)
     @Test
     public void shiftWithLowerBoundAtZero() {
-        // This test covers: E1, E3, E6; LB (lower at 0 boundary)
-        // Input: Range(-5,5), delta = 5, allowZeroCrossing = false
-        // Expected: Range(0,10)
         Range base = new Range(-5, 5);
         Range result = Range.shift(base, 5, false);
         assertEquals("Shifted range lower bound should be 0", 
@@ -95,9 +83,6 @@ public class RangeShiftTest {
     // Expected: Range(0,10.1)
     @Test
     public void shiftWithLowerBoundCrossingZero() {
-        // This test covers: E1, E3, E6; ALB (lower crosses zero)
-        // Input: Range(-5,5), delta = 5.1, allowZeroCrossing = false
-        // Expected: Range(0,10.1)
         Range base = new Range(-5, 5);
         Range result = Range.shift(base, 5.1, false);
         assertEquals("Shifted range lower bound should be 0 (clamped)", 
@@ -111,9 +96,6 @@ public class RangeShiftTest {
     // Expected: Range(-4.1,-0.1)
     @Test
     public void shiftWithUpperBoundJustBelowZero() {
-        // This test covers: E1, E3, E6; BUB (upper just below 0)
-        // Input: Range(-6,-2), delta = 1.9, allowZeroCrossing = false
-        // Expected: Range(-4.1,-0.1)
         Range base = new Range(-6, -2);
         Range result = Range.shift(base, 1.9, false);
         assertEquals("Shifted range lower bound should be -4.1", 
@@ -127,9 +109,6 @@ public class RangeShiftTest {
     // Expected: Range(-4,0)
     @Test
     public void shiftWithUpperBoundAtZero() {
-        // This test covers: E1, E3, E6; UB (upper at 0 boundary)
-        // Input: Range(-6,-2), delta = 2, allowZeroCrossing = false
-        // Expected: Range(-4,0)
         Range base = new Range(-6, -2);
         Range result = Range.shift(base, 2, false);
         assertEquals("Shifted range lower bound should be -4", 
@@ -143,9 +122,6 @@ public class RangeShiftTest {
     // Expected: Range(-3.9,0)
     @Test
     public void shiftWithUpperBoundCrossingZero() {
-        // This test covers: E1, E3, E6; AUB (upper crosses zero)
-        // Input: Range(-6,-2), delta = 2.1, allowZeroCrossing = false
-        // Expected: Range(-3.9,0)
         Range base = new Range(-6, -2);
         Range result = Range.shift(base, 2.1, false);
         assertEquals("Shifted range lower bound should be -3.9", 
@@ -159,9 +135,6 @@ public class RangeShiftTest {
     // Expected: Range(-3,7)
     @Test
     public void shiftWithZeroCrossingAllowed() {
-        // This test covers: E1, E3, E5; NOM
-        // Input: Range(-5,5), delta = 2, allowZeroCrossing = true
-        // Expected: Range(-3,7)
         Range base = new Range(-5, 5);
         Range result = Range.shift(base, 2, true);
         assertEquals("Shifted range lower bound should be -3", 
@@ -175,9 +148,6 @@ public class RangeShiftTest {
     // Expected: Range(-8,2)
     @Test
     public void shiftWithNegativeDelta() {
-        // This test covers: E1, E4, E5; NOM (negative delta)
-        // Input: Range(-6,4), delta = -2, allowZeroCrossing = true
-        // Expected: Range(-8,2)
         Range base = new Range(-6, 4);
         Range result = Range.shift(base, -2, true);
         assertEquals("Shifted range lower bound should be -8", 
@@ -191,9 +161,6 @@ public class RangeShiftTest {
     // Expected: Range(-3,1)
     @Test
     public void shiftPositiveRangeWithLargeNegativeDelta() {
-        // This test covers: E1, E4, E5; NOM (larger negative delta)
-        // Input: Range(2,6), delta = -5, allowZeroCrossing = true
-        // Expected: Range(-3,1)
         Range base = new Range(2, 6);
         Range result = Range.shift(base, -5, true);
         assertEquals("Shifted range lower bound should be -3", 
