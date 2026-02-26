@@ -51,13 +51,13 @@ The table below summarizes how the test case design and unit test development ta
 
 | Method | Member |
 |--------|--------|
-| `Range.expandToInclude()` | Minh |
-| `Range.intersects()` | Minh |
-| `Range.contains()` | Thanoshan |
-| `Range.shift()` | Thanoshan |
+| `Range.expandToInclude(Range range, double value)` | Minh |
+| `Range.intersects(double lower, double upper)` | Minh |
+| `Range.contains(double value)` | Thanoshan |
+| `Range.shift(Range base, double delta, boolean allowZeroCrossing)` | Thanoshan |
 | `Range.getLength()` | Shuvam |
-| `DataUtilities.createNumberArray()` | Shuvam |
-| `DataUtilities.createNumberArray2D()` | Shuvam |
+| `DataUtilities.createNumberArray(double[] data)` | Shuvam |
+| `DataUtilities.createNumberArray2D(double[][] data)` | Shuvam |
 
 # 5 Difficulties encountered, challenges overcome, and lessons learned
 
