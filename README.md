@@ -70,3 +70,4 @@ The table below summarizes how the test case design and unit test development ta
 1. This assignment has given us a great opportunity to practically learn how to do black box testing using approaches like Equivalence Class Testing, Boundary Value Testing, and Robustness Testing.
 2. We've learnt about popular Java testing framework
 3. The assignment description file is thorough and well-organized, making it easy to understand and follow.
+4. Additionally, the project setup guidelines were very helpful. Without them, we might have faced difficulties during setup and encountered compatibility issues.
