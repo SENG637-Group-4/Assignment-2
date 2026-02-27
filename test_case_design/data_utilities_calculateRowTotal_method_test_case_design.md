@@ -16,6 +16,8 @@ Returns the sum of the values in one row of the supplied data table. With invali
 
 **Throws:** `InvalidParameterException` if an invalid data object is passed in.
 
+> **Note on Implementation:** Since `Values2D` is an interface (used in JFreeChart), all test data must be constructed using a mocking framework (JMock). 
+
 ---
 
 ## Equivalence Classes for the Inputs
@@ -80,19 +82,21 @@ Returns the sum of the values in one row of the supplied data table. With invali
 
 | Symbol | Value | Description |
 |--------|-------|-------------|
-| BLB | -1 | One below lower bound - invalid |
-| LB | 0 | First row - valid |
-| ALB | 1 | Second row - valid |
+| BLB | -1 | One below lower bound — invalid |
+| LB | 0 | First row — valid |
+| ALB | 1 | Second row — valid (requires n ≥ 2) |
 | NOM | n/2 | Middle row |
-| BUB | n-2 | Second-to-last row - valid |
-| UB | n-1 | Last row - valid |
-| AUB | n | One past the last row - invalid |
+| BUB | n-2 | Second-to-last row — valid (requires n ≥ 3) |
+| UB | n-1 | Last row — valid |
+| AUB | n | One past the last row — invalid |
+
+> **Note:** To meaningfully distinguish ALB, BUB, and UB as separate boundary cases, use a table with at least **4 rows** (e.g., n = 4 gives ALB = 1, BUB = 2, UB = 3).
 
 ### Column count per row
 
 | Symbol | Value | Description |
 |--------|-------|-------------|
-| LB | 0 | Empty row - sum should be 0.0 |
+| LB | 0 | Empty row — sum should be 0.0 |
 | ALB | 1 | Single-element row |
 | NOM | 2–3 | Typical column count |
 
@@ -103,20 +107,16 @@ Returns the sum of the values in one row of the supplied data table. With invali
 | Test Case | Input `data` | Input `row` | Relevant Classes | Expected Behavior |
 |-----------|-------------|-------------|-----------------|-------------------|
 | 1 | `{{1.0, 2.0}, {3.0, 4.0}}` | `0` | E1, E6, E9; LB row | Returns `3.0` (sum of first row) |
-| 2 | `{{1.0, 2.0}, {3.0, 4.0}}` | `1` | E1, E7, E9; ALB row | Returns `7.0` (sum of second row) |
-| 3 | `{{1.0, 2.0}, {3.0, 4.0}}` | `1` | E1, E8, E9; UB row (n-1 = 1) | Returns `7.0` |
-| 4 | `{{5.0}}` | `0` | E2, E3, E6; single-row single-column | Returns `5.0` |
-| 5 | `{{0.0, 0.0}, {0.0, 0.0}}` | `0` | E1, E4, E6; all zeros | Returns `0.0` |
-| 6 | `{{-1.0, -2.0}, {3.0, 4.0}}` | `0` | E1, E5, E6, E10; negative values | Returns `-3.0` |
-| 7 | `{{-1.5, 2.5}, {3.0, -3.0}}` | `1` | E1, E5, E10; mixed positive and negative | Returns `0.0` |
-| 8 | `null` | `0` | U1; null data | Throws `InvalidParameterException` |
-| 9 | `{{1.0, 2.0}, {3.0, 4.0}}` | `-1` | E1, U2; BLB row index | Returns `0.0` (invalid input per spec) |
-| 10 | `{{1.0, 2.0}, {3.0, 4.0}}` | `2` | E1, U3; AUB row index (n = 2) | Returns `0.0` (invalid input per spec) |
-| 11 | `{{Double.NaN, 1.0}}` | `0` | E2, U4; NaN element in row | Result is `NaN` (NaN propagation) |
-| 12 | `{{Double.POSITIVE_INFINITY, 1.0}}` | `0` | E2, U5; Infinity element | Returns `POSITIVE_INFINITY` |
-| 13 | `{{Double.MAX_VALUE, Double.MAX_VALUE}}` | `0` | E2, U6; UB element values | Returns `POSITIVE_INFINITY` (overflow) or `Double.MAX_VALUE * 2` |
-| 14 | `{{Double.MIN_VALUE, 1.0}}` | `0` | E2, U6; LB element value | Returns sum including `Double.MIN_VALUE` |
-| 15 | Table with one empty row: `{{}, {1.0, 2.0}}` | `0` | E1, LB inner; empty row | Returns `0.0` |
-| 16 | `{{1.0, 2.0}, {3.0, 4.0}}` - verify column count ignored | `0` | E1, E6; confirm only target row summed | Returns `3.0`, not `10.0` |
-
----
+| 2 | `{{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}, {7.0, 8.0}}` | `1` | E1, E7, E9; ALB row | Returns `7.0` (sum of second row) |
+| 3 | `{{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}, {7.0, 8.0}}` | `2` | E1, E9; BUB row (n-2 = 2) | Returns `11.0` (sum of third row) |
+| 4 | `{{1.0, 2.0}, {3.0, 4.0}, {5.0, 6.0}, {7.0, 8.0}}` | `3` | E1, E8, E9; UB row (n-1 = 3) | Returns `15.0` (sum of last row) |
+| 5 | `{{5.0}}` | `0` | E2, E3, E6; single-row single-column | Returns `5.0` |
+| 6 | `{{0.0, 0.0}, {0.0, 0.0}}` | `0` | E1, E4, E6, E11; all zeros | Returns `0.0` |
+| 7 | `{{-1.0, -2.0}, {3.0, 4.0}}` | `0` | E1, E5, E6, E10; negative values | Returns `-3.0` |
+| 8 | `{{-1.5, 2.5}, {3.0, -3.0}}` | `1` | E1, E5, E10; mixed positive and negative | Returns `0.0` |
+| 9 | `null` | `0` | U1; null data | Throws `InvalidParameterException` |
+| 10 | `{{1.0, 2.0}, {3.0, 4.0}}` | `-1` | E1, U2; BLB row index | Returns `0.0` (invalid input per spec) or throws — **behavior should be verified against implementation** |
+| 11 | `{{1.0, 2.0}, {3.0, 4.0}}` | `2` | E1, U3; AUB row index (n = 2) | Returns `0.0` (invalid input per spec) or throws — **behavior should be verified against implementation** |
+| 12 | `{{Double.NaN, 1.0}}` | `0` | E2, U4; NaN element in row | Result is `NaN` (NaN propagation in floating-point arithmetic) |
+| 13 | `{{Double.POSITIVE_INFINITY, 1.0}}` | `0` | E2, U5; Infinity element | Returns `POSITIVE_INFINITY` |
+| 14 | `{{Double.MAX_VALUE, Double.MAX_VALUE}}` | `0` | E2, U6; UB element values | Returns `POSITIVE_INFINITY` (overflow — `MAX_VALUE + MAX_VALUE` exceeds double range) |
