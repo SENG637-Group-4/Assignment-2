@@ -59,9 +59,9 @@ The detailed descriptions of the test cases developed for each test method are p
 **DataUtilities class:**
 - `createNumberArray(double[] data)` - [Test Cases](test_case_design/data_utilities_createNumberArray_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
 - `createNumberArray2D(double[][] data)` - [Test Cases](test_case_design/data_utilities_createNumberArray2D_method_test_case_design.md#set-of-test-cases-based-on-equivalence-classes-and-boundary-value-analysis)
-- `calculateColumnTotal(Values2D data, int column)` - [Test Case Design](test_case_design/data_utilities_calculateColumnTotal_method_test_case_design.md#test-cases)
-- `calculateRowTotal(Values2D data, int row)` - [Test Case Design](test_case_design/data_utilities_calculateRowTotal_method_test_case_design.md#test-cases)
-- `getCumulativePercentages(KeyedValues data)` - [Test Case Design](test_case_design/data_utilities_getCumulativePercentages_method_test_case_design.md#test-cases)
+- `calculateColumnTotal(Values2D data, int column)` - [Test Case](test_case_design/data_utilities_calculateColumnTotal_method_test_case_design.md#test-cases)
+- `calculateRowTotal(Values2D data, int row)` - [Test Case](test_case_design/data_utilities_calculateRowTotal_method_test_case_design.md#test-cases)
+- `getCumulativePercentages(KeyedValues data)` - [Test Case](test_case_design/data_utilities_getCumulativePercentages_method_test_case_design.md#test-cases)
 
 # 4 Test case result
 We totally run 120 unit test cases across 10 methods. Among 120, we observed 57 failure cases
