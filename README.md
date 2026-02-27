@@ -70,172 +70,172 @@ We totally run 120 unit test cases across 10 methods. Among 120, we observed 63 
 
 ### Test Results for `contains(double value)`
 
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| isValidNominalValueWithinRange | 54 |  |
-| isValidLowerBoundaryValue | 5  |  |
-| isValidUpperBoundaryValue | 95  |  |
-| isValidJustBelowUpperBoundary | 94  |  |
-| isInvalidBelowLowerBoundary | 4  |  |
-| isInvalidAboveUpperBoundary | 96  |  |
-| isValidJustAboveLowerBoundary | 6  |  |
-| isInvalidDoubleMaximumValue | double maximum value  |  |
-| isInvalidDoubleMinimumValue | double minimum value |  |
+| 1 | 54 | pass |
+| 2 | 5  | pass |
+| 3 | 95  | pass |
+| 4 | 94  | pass |
+| 5 | 4  | pass |
+| 6 | 96  | pass|
+| 7 | 6  | pass |
+| 8 | double maximum value  | pass |
+| 9 | double minimum value | pass |
 
 ### Test Results for `getLength()`
 
 
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| getLengthPositiveRange | Range(2.0, 6.0)  |  |
-| getLengthCrossZeroRange | Range(-10.0, 10.0)  |  |
-| getLengthNegativeOnlyRange | Range(-10.0, -2.0)  |  |
-| getLengthZeroLengthRange | Range(5.0, 5.0) |  |
-| getLengthLowerBoundAtZero | Range(0.0, 5.0) |  |
-| getLengthUpperBoundAtZero | Range(-5.0, 0.0)  |  |
-| getLengthBothBoundsAtZero | Range(0.0, 0.0) |  |
-| getLengthTinyCrossZeroRange | Range(-0.0001, 0.0001)  |  |
-| getLengthUpperJustBelowZero | Range(-1.0, -0.0001) |  |
-| getLengthLowerJustAboveZero | Range(0.0001, 1.0)  |  |
+| 1 | Range(2.0, 6.0)  | pass |
+| 2 | Range(-10.0, 10.0)  | pass |
+| 3 | Range(-10.0, -2.0)  | pass |
+| 4 | Range(5.0, 5.0) | pass |
+| 5 | Range(0.0, 5.0) | pass |
+| 6 | Range(-5.0, 0.0)  |pass  |
+| 7 | Range(0.0, 0.0) | pass |
+| 8 | Range(-0.0001, 0.0001)  | pass |
+| 9 | Range(-1.0, -0.0001) | pass |
+| 10 | Range(0.0001, 1.0)  | pass |
 
 ### Test Results for `shift(Range base, double delta, boolean allowZeroCrossing)`
 
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| shiftNullBaseThrowsInvalidParameterException | null, any, any (U1) |  |
-| shiftZeroDeltaAllowZeroCrossingReturnsUnchangedRange | Range(-5,5), 0, true  |  |
-| shiftRightLowerJustBelowZeroDisallowZeroCrossing | Range(-5,5), 4.9, false  |  |
-| shiftRightLowerAtZeroDisallowZeroCrossing | Range(-5,5), 5, false  |  |
-| shiftRightLowerCrossesZeroDisallowZeroCrossing | Range(-5,5), 5.1, false  |  |
-| shiftRightUpperJustBelowZeroDisallowZeroCrossing | Range(-6,-2), 1.9, false |  |
-| shiftRightUpperAtZeroDisallowZeroCrossing | Range(-6,-2), 2, false  |  |
-| shiftRightUpperCrossesZeroDisallowZeroCrossing | Range(-6,-2), 2.1, false |  |
-| shiftRightAllowZeroCrossingNormalCase | Range(-5,5), 2, true  |  |
-| shiftLeftAllowZeroCrossingMixedRange | Range(-6,4), -2, true  |  |
-| shiftLeftAllowZeroCrossingPositiveRangeBecomesMixed | Range(2,6), -5, true  |  |
+| 1 | null, any, any (U1) | pass |
+| 2 | Range(-5,5), 0, true  | fail  |
+| 3 | Range(-5,5), 4.9, false  | fail |
+| 4 | Range(-5,5), 5, false  | fail |
+| 5 | Range(-5,5), 5.1, false  | fail |
+| 6 | Range(-6,-2), 1.9, false | fail |
+| 7 | Range(-6,-2), 2, false  |fail  |
+| 8 | Range(-6,-2), 2.1, false | fail |
+| 9 | Range(-5,5), 2, true  | fail |
+| 10 | Range(-6,4), -2, true  | fail |
+| 11 | Range(2,6), -5, true  | fail |
 
 ### Test Results for `expandToInclude(Range range, double value)`
 
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| expandNullRangeWithZeroValue | null, 0 |  |
-| expandNullRangeWithNegativeValue | null, -10 |  |
-| expandLowerBoundJustBelow | Range(-10, 10), -10.00001 |  |
-| expandValueEqualsLowerBound | Range(-10, 10), -10 |  |
-| expandValueJustAboveLowerBound | Range(-10, 10), -9.99999 |  |
-| expandNominalValueWithinRange | Range(-10, 10), 0 |  |
-| expandValueJustBelowUpperBound | Range(-10, 10), 9.99999 |  |
-| expandValueEqualsUpperBound | Range(-10, 10), 10 |  |
-| expandUpperBoundJustAbove | Range(-10, 10), 10.00001 |  |
-| expandUpperBoundToDoubleMaxValue | Range(-10, 10), Double.MAX_VALUE |  |
-| expandLowerBoundToNegativeDoubleMaxValue | Range(-10, 10), -Double.MAX_VALUE |  |
-| expandWithDoubleMinValueInsideRange | Range(-10, 10), Double.MIN_VALUE |  |
-| expandNullRangeWithNaNValue | null, Double.NaN |  |
+| 1 | null, 0 | pass |
+| 2 | null, -10 | pass |
+| 3 | Range(-10, 10), -10.00001 |fail  |
+| 4 | Range(-10, 10), -10 | pass |
+| 5 | Range(-10, 10), -9.99999 | fail |
+| 6 | Range(-10, 10), 0 | fail |
+| 7 | Range(-10, 10), 9.99999 | fail |
+| 8 | Range(-10, 10), 10 | fail |
+| 9 | Range(-10, 10), 10.00001 | fail |
+| 10 | Range(-10, 10), Double.MAX_VALUE |fail  |
+| 11 | Range(-10, 10), -Double.MAX_VALUE | fail |
+| 12 | Range(-10, 10), Double.MIN_VALUE | fail |
+| 13 | null, Double.NaN | pass |
 
 ### Test Results for `intersects(double lower, double upper)`
 
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| intersectsEndsAtLowerBound | (-10.00001, -10) |  |
-| intersectsSlightOverlapAtLowerBound | (-10.00001, -9.99999) |  |
-| intersectsFullySpansRange | (-10.00001, 10.00001) |  |
-| intersectsStartsAtLowerBound | (-10, -9.99999) |  |
-| intersectsExactRangeMatch | (-10, 10) |  |
-| intersectsFullyInsideRange | (-1, 1) |  |
-| intersectsEndsAtUpperBound | (9.99999, 10) |  |
-| intersectsStartsAtUpperBound | (10, 10.00001) |  |
-| intersectsWithDoubleMinValue | (Double.MIN_VALUE, 10.00001) |  |
-| intersectsWithDoubleMaxValue | (-10.00001, Double.MAX_VALUE) |  |
-| intersectsSinglePointInside | (0, 0) |  |
-| intersectsWithNaNLowerBound | (Double.NaN, 1) |  |
-| intersectsWithNaNUpperBound | (1, Double.NaN) |  |
-| intersectsSinglePointAtLowerBound | (-10, -10) |  |
-| intersectsSinglePointAtUpperBound | (10, 10) |  |
+| 1 | (-10.00001, -10) | pass |
+| 2 | (-10.00001, -9.99999) | pass |
+| 3 | (-10.00001, 10.00001) | pass |
+| 4 | (-10, -9.99999) | pass |
+| 5 | (-10, 10) | pass |
+| 6 | (-1, 1) |  |
+| 7 | (9.99999, 10) | fail |
+| 8 | (10, 10.00001) |  fail|
+| 9 | (Double.MIN_VALUE, 10.00001) |fail  |
+| 10 | (-10.00001, Double.MAX_VALUE) |  pass|
+| 11 | (0, 0) | pass |
+| 12 | (Double.NaN, 1) | pass |
+| 13 | (1, Double.NaN) | pass |
+| 14 | (-10, -10) | pass |
+| 15 | (10, 10) | fail |
 
 ### Test Results for `createNumberArray(double[] data)`
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| createNumberArrayAllPositiveValues | {1.0, 2.5, 3.0} |  |
-| createNumberArrayAllNegativeValues | {-1.0, -2.5, -3.0} |  |
-| createNumberArrayMixedValuesWithZero | {-1.0, 0.0, 3.0} |  |
-| createNumberArrayEmptyArray | {} |  |
-| createNumberArraySinglePositiveElement | {5.0} |  |
-| createNumberArrayNullInput | null |  |
-| createNumberArrayWithNaNElement | {Double.NaN} |  |
-| createNumberArrayWithPositiveInfinity | {Double.POSITIVE_INFINITY} |  |
-| createNumberArrayWithMaxAndMinValues | {Double.MAX_VALUE, Double.MIN_VALUE} |  |
-| createNumberArrayVerifyOutputLength | {1.0, 2.5, 3.0} – verify result length |  |
-| createNumberArrayVerifyElementType | {1.0, 2.5, 3.0} – verify element type |  |
+| 1 | {1.0, 2.5, 3.0} | fail  |
+| 2 | {-1.0, -2.5, -3.0} | fail |
+| 3 | {-1.0, 0.0, 3.0} | fail |
+| 4 | {} | pass |
+| 5 | {5.0} | fail |
+| 6 | null | pass |
+| 7 | {Double.NaN} |  fail|
+| 8 | {Double.POSITIVE_INFINITY} |  fail|
+| 9 | {Double.MAX_VALUE, Double.MIN_VALUE} | fail |
+| 10 | {1.0, 2.5, 3.0} – verify result length | pass |
+| 11 | {1.0, 2.5, 3.0} – verify element type |fail  |
 
 ### Test Results for `createNumberArray2D(double[][] data)`
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| createNumberArray2DRectangular2x2 | {{1.0, 2.0}, {3.0, 4.0}} |  |
-| createNumberArray2DJaggedArray | {{1.0}, {2.0, 3.0}} |  |
-| createNumberArray2DSingleRow | {{1.0, 2.0, 3.0}} |  |
-| createNumberArray2DSingleColumn | {{1.0}, {2.0}, {3.0}} |  |
-| createNumberArray2DEmptyOuterArray | {} |  |
-| createNumberArray2DSingleEmptyRow | {{}} |  |
-| createNumberArray2DNullInput | null |  |
-| createNumberArray2DWithNaNAndInfinity | {{Double.NaN, 1.0}, {2.0, Double.POSITIVE_INFINITY}} |  |
-| createNumberArray2DWithMaxAndMinValues | {{Double.MAX_VALUE}, {Double.MIN_VALUE}} |  |
-| createNumberArray2DVerifyOuterLength | {{1.0, 2.0}, {3.0, 4.0}} – verify outer length |  |
-| createNumberArray2DVerifyInnerLengths | {{1.0, 2.0}, {3.0, 4.0}} – verify inner lengths |  |
-| createNumberArray2DVerifyElementType | {{1.0, 2.0}, {3.0, 4.0}} – verify element type |  |
+| 1 | {{1.0, 2.0}, {3.0, 4.0}} | fail |
+| 2 | {{1.0}, {2.0, 3.0}} | fail |
+| 3 | {{1.0, 2.0, 3.0}} | fail |
+| 4 | {{1.0}, {2.0}, {3.0}} |fail  |
+| 5 | {} |  pass|
+| 6 | {{}} | pass |
+| 7 | null | pass |
+| 8 | {{Double.NaN, 1.0}, {2.0, Double.POSITIVE_INFINITY}} |fail  |
+| 9 | {{Double.MAX_VALUE}, {Double.MIN_VALUE}} | fail |
+| 10 | {{1.0, 2.0}, {3.0, 4.0}} – verify outer length |pass  |
+| 11 | {{1.0, 2.0}, {3.0, 4.0}} – verify inner lengths | pass |
+| 12 | {{1.0, 2.0}, {3.0, 4.0}} – verify element type | fail |
 
 ### Test Results for `calculateColumnTotal(Values2D data, int column)`
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| calculateColumnTotalLowerBoundColumn2x2 | 2x2 table, column 0 |  |
-| calculateColumnTotalUpperBoundColumn2x2 | 2x2 table, column 1 |  |
-| calculateColumnTotalNominalColumn3x3 | 3x3 table, column 1 |  |
-| calculateColumnTotalBeforeUpperBoundColumn3x3 | 3x3 table, column 1 (colCount-2) |  |
-| calculateColumnTotalSingleRow | 1x3 table, column 0 |  |
-| calculateColumnTotalSingleColumn | 3x1 table, column 0 |  |
-| calculateColumnTotalEmptyTable | empty table, column 0 |  |
-| calculateColumnTotalAllNullColumn | 2x2 table with all null values in column 0 |  |
-| calculateColumnTotalSomeNullValues | 2x2 table with one null in column 0 |  |
-| calculateColumnTotalAllZeroValues | 2x2 table with all zeros, column 0 |  |
-| calculateColumnTotalValuesCancelOut | 2x2 table with cancelling values, column 0 |  |
-| calculateColumnTotalAllNegativeValues | 2x2 table with all negative values, column 0 |  |
-| calculateColumnTotalMixedValues | 2x2 table with mixed values, column 1 |  |
-| calculateColumnTotalNullData | null data, column 0 |  |
+| 1 | 2x2 table, column 0 | pass  |
+| 2 | 2x2 table, column 1 | pass |
+| 3 | 3x3 table, column 1 | pass |
+| 4 | 3x3 table, column 1 (colCount-2) | pass |
+| 5 | 1x3 table, column 0 | pass |
+| 6 | 3x1 table, column 0 | pass |
+| 7 | empty table, column 0 | pass |
+| 8 | 2x2 table with all null values in column 0 | fail |
+| 9 | 2x2 table with one null in column 0 |fail  |
+| 10 | 2x2 table with all zeros, column 0 | pass |
+| 11 | 2x2 table with cancelling values, column 0 |  pass|
+| 12 | 2x2 table with all negative values, column 0 |  pass|
+| 13 | 2x2 table with mixed values, column 1 |pass  |
+| 14 | null data, column 0 | pass |
 
 ### Test Results for `calculateRowTotal(Values2D data, int row)`
 
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| calculateRowTotalLowerBoundRow | 2x2 table, row 0 |  |
-| calculateRowTotalAboveLowerBoundRow | 4x2 table, row 1 |  |
-| calculateRowTotalBeforeUpperBoundRow | 4x2 table, row 2 |  |
-| calculateRowTotalUpperBoundRow | 4x2 table, row 3 |  |
-| calculateRowTotalSingleCell | 1x1 table, row 0 |  |
-| calculateRowTotalAllZeroValues | 2x2 table, row 0 (all zeros) |  |
-| calculateRowTotalNegativeValues | 2x2 table, row 0 (negative values) |  |
-| calculateRowTotalMixedValues | 2x2 table, row 1 (mixed values) |  |
-| calculateRowTotalNullData | null data, row 0 |  |
-| calculateRowTotalBelowLowerBoundIndex | 2x2 table, row -1 |  |
-| calculateRowTotalAboveUpperBoundIndex | 2x2 table, row 2 |  |
-| calculateRowTotalWithNaNElement | 1x2 table with NaN, row 0 |  |
-| calculateRowTotalWithInfinityElement | 1x2 table with POSITIVE_INFINITY, row 0 |  |
-| calculateRowTotalWithMaxValueOverflow | 1x2 table with Double.MAX_VALUE values, row 0 |  |
+| 1 | 2x2 table, row 0 | fail |
+| 2 | 4x2 table, row 1 |  fail|
+| 3 | 4x2 table, row 2 | fail |
+| 4 | 4x2 table, row 3 | fail |
+| 5 | 1x1 table, row 0 | fail |
+| 6 | 2x2 table, row 0 (all zeros) | pass |
+| 7 | 2x2 table, row 0 (negative values) | fail |
+| 8 | 2x2 table, row 1 (mixed values) | fail |
+| 9 | null data, row 0 |pass  |
+| 10 | 2x2 table, row -1 |pass  |
+| 11 | 2x2 table, row 2 | pass |
+| 12 | 1x2 table with NaN, row 0 | pass |
+| 13 | 1x2 table with POSITIVE_INFINITY, row 0 | pass |
+| 14 | 1x2 table with Double.MAX_VALUE values, row 0 |  fail|
 
 ### Test Results for `getCumulativePercentages(KeyedValues data)`
-| Test Case Name | Input Partitions | Status |
+| Test Case Number | Input Partitions | Status |
 |---------------|------------------|--------|
-| cumulativePercentagesNominalPositiveValues | {0→5, 1→9, 2→2} |  |
-| cumulativePercentagesSingleElement | {0→10} |  |
-| cumulativePercentagesEmptyInput | {} |  |
-| cumulativePercentagesNullInput | null |  |
-| cumulativePercentagesWithNegativeValue | {0→5, 1→-2, 2→3} |  |
-| cumulativePercentagesEqualValues | {0→4, 1→4, 2→4} |  |
-| cumulativePercentagesWithZeroValue | {0→5, 1→0, 2→3} |  |
-| cumulativePercentagesAllZeroValues | {0→0, 1→0, 2→0} |  |
-| cumulativePercentagesNonIntegerKeys | {"a"→6, "b"→4} |  |
-| cumulativePercentagesWithNullValue | {0→null, 1→4} |  |
-| cumulativePercentagesWithNaNValue | {0→NaN, 1→5} |  |
-| cumulativePercentagesWithInfinityValue | {0→Infinity, 1→5} |  |
-| cumulativePercentagesWithMaxValueDominance | {0→Double.MAX_VALUE, 1→1} |  |
+| 1 | {0→5, 1→9, 2→2} | fail  |
+| 2 | {0→10} |  fail|
+| 3 | {} |  pass |
+| 4 | null |pass  |
+| 5 | {0→5, 1→-2, 2→3} |fail  |
+| 6 | {0→4, 1→4, 2→4} | fail |
+| 7 | {0→5, 1→0, 2→3} | fail |
+| 8 | {0→0, 1→0, 2→0} | pass |
+| 9 | {"a"→6, "b"→4} | fail |
+| 10 | {0→null, 1→4} |  fail|
+| 11 | {0→NaN, 1→5} | pass |
+| 12 | {0→Infinity, 1→5} | fail |
+| 13 | {0→Double.MAX_VALUE, 1→1} | fail |
 
 # 5 How the team work/effort was divided and managed
 
