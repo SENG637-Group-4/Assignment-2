@@ -5,21 +5,6 @@ import org.jfree.data.Range;
 import org.junit.*;
 import java.security.InvalidParameterException;
 
-/**
- * Unit tests for the shift() method of org.jfree.data.Range.
- *
- * Method under test:
- *   public static Range shift(Range base, double delta, boolean allowZeroCrossing)
- *   Returns a range the size of the input range, which has been moved positively 
- *   (to the right) by the delta value. If allowZeroCrossing is false, any bound 
- *   which crosses the zero mark after shifting (either from negative to positive, 
- *   or positive to negative), will become zero.
- *
- * Test strategy: Equivalence class partitioning and boundary value analysis.
- * See test_case_design/range_class_shift_method_test_case_design.md
- * for the full test case design.
- *
- */
 public class RangeShiftTest {
 
     @BeforeClass

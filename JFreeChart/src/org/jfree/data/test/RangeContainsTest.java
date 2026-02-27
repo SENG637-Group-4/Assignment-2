@@ -4,18 +4,6 @@ import static org.junit.Assert.*;
 import org.jfree.data.Range;
 import org.junit.*;
 
-/**
- * Unit tests for the contains() method of org.jfree.data.Range.
- *
- * Method under test:
- *   public boolean contains(double value)
- *   Returns true if the specified value is within the range and false otherwise.
- *
- * Test strategy: Equivalence class partitioning and boundary value analysis.
- * See test_case_design/range_class_contains_method_test_case_design.md
- * for the full test case design.
- *
- */
 public class RangeContainsTest {
 
     @BeforeClass
