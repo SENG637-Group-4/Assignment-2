@@ -1,4 +1,4 @@
-# SENG 637 - Software Testing, Reliability, and Quality**
+# SENG 637 - Software Testing, Reliability, and Quality
 
 ## Lab. Report \#2 – Requirements-Based Test Generation**
 
@@ -64,7 +64,7 @@ The detailed descriptions of the test cases developed for each test method are p
 - `getCumulativePercentages(KeyedValues data)` - [Test Case](test_case_design/data_utilities_getCumulativePercentages_method_test_case_design.md#test-cases)
 
 # 4 Test case result
-We totally run 120 unit test cases across 10 methods. Among 120, we observed 57 failure cases
+We totally run 120 unit test cases across 10 methods. Among 120, we observed 63 pass test cases and 57 failure unit cases. 0 error
 
 <img width="482" height="554" alt="image" src="https://github.com/user-attachments/assets/7dc4855e-5e8f-4498-99ae-aa0354e662b6" />
 
