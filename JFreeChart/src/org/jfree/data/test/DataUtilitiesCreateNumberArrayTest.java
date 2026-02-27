@@ -79,8 +79,8 @@ public class DataUtilitiesCreateNumberArrayTest {
         assertEquals(5.0, result[0].doubleValue(), .000000001d);
     }
 
-    // U1: null — must throw IllegalArgumentException
-    @Test(expected = IllegalArgumentException.class)
+    // U1: null — must throw InvalidParameterException
+    @Test(expected = InvalidParameterException.class)
     public void createNumberArrayWithNullShouldThrowException() {
         DataUtilities.createNumberArray(null);
     }

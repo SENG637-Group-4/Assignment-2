@@ -23,7 +23,7 @@ Constructs a two-dimensional array of `Number` objects (specifically `Double`) f
 - **E1:** outer length > 1 — multiple rows (NOM)
 - **E2:** outer length = 1 — single-row array (ALB)
 - **E3:** outer length = 0 — empty outer array (LB); valid per spec
-- **U1:** `null` — not permitted; must throw `IllegalArgumentException`
+- **U1:** `null` — not permitted; must throw `InvalidParameterException`
 
 ### Input variable: inner array length (number of columns per row, `int`)
 - **E4:** all rows have equal length — rectangular array

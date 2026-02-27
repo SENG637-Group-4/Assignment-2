@@ -23,7 +23,7 @@ Constructs an array of `Number` objects (specifically `Double`) from an array of
 - **E1:** length > 1 — standard non-empty array (NOM)
 - **E2:** length = 1 — single-element array (ALB)
 - **E3:** length = 0 — empty array (LB); valid per spec, should return empty `Number[]`
-- **U1:** `null` — not permitted; must throw `IllegalArgumentException`
+- **U1:** `null` — not permitted; must throw `InvalidParameterException`
 
 ### Input variable: element values (`double`)
 - **E4:** all-positive `double` values
@@ -64,7 +64,7 @@ For element values, with NOM input `{1.0, 2.5, −3.0}`:
 | 3 | `{−1.0, 0.0, 3.0}` | E1; E6; NOM length, mixed values with zero | Returns `Number[]{−1.0, 0.0, 3.0}` |
 | 4 | `{}` | E3; LB length = 0 | Returns empty `Number[]` of length 0 |
 | 5 | `{5.0}` | E2; E4; ALB length = 1, single positive element | Returns `Number[]{5.0}` |
-| 6 | `null` | U1; null not permitted | Throws `IllegalArgumentException` |
+| 6 | `null` | U1; null not permitted | Throws `InvalidParameterException` |
 | 7 | `{Double.NaN}` | E2; U2; NaN element | Returns `Number[]` containing `NaN` |
 | 8 | `{Double.POSITIVE_INFINITY}` | E2; U3; positive infinity element | Returns `Number[]` containing `POSITIVE_INFINITY` |
 | 9 | `{Double.MAX_VALUE, Double.MIN_VALUE}` | E1; U4; UB and LB element values | Returns `Number[]{MAX_VALUE, MIN_VALUE}` |

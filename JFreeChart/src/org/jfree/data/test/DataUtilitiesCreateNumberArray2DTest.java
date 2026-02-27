@@ -96,8 +96,8 @@ public class DataUtilitiesCreateNumberArray2DTest {
         assertEquals("That row should have length 0", 0, result[0].length);
     }
 
-    // U1: null — must throw IllegalArgumentException
-    @Test(expected = IllegalArgumentException.class)
+    // U1: null — must throw InvalidParameterException
+    @Test(expected = InvalidParameterException.class)
     public void createNumberArray2DWithNullShouldThrowException() {
         DataUtilities.createNumberArray2D(null);
     }
