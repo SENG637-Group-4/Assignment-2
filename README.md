@@ -142,7 +142,7 @@ We totally run 120 unit test cases across 10 methods. Among 120, we observed 63 
 | 3 | (-10.00001, 10.00001) | pass |
 | 4 | (-10, -9.99999) | pass |
 | 5 | (-10, 10) | pass |
-| 6 | (-1, 1) |  |
+| 6 | (-1, 1) | pass |
 | 7 | (9.99999, 10) | fail |
 | 8 | (10, 10.00001) |  fail|
 | 9 | (Double.MIN_VALUE, 10.00001) |fail  |
