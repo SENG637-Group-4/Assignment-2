@@ -63,7 +63,7 @@ For the outer array (number of rows `m`) and inner arrays (number of columns `n`
 | 4 | `{{1.0}, {2.0}, {3.0}}` | E1; E6; single column, ALB inner = 1 | Returns `Number[][]` with 3 rows of 1 element each |
 | 5 | `{}` | E3; LB outer length = 0 | Returns empty `Number[][]`, `result.length == 0` |
 | 6 | `{{}}` | E2; E7; single row that is empty (LB inner = 0) | Returns `Number[][]` with one empty row |
-| 7 | `null` | U1; null not permitted | Throws `IllegalArgumentException` |
+| 7 | `null` | U1; null not permitted | Throws `InvalidParameterException` |
 | 8 | `{{Double.NaN, 1.0}, {2.0, Double.POSITIVE_INFINITY}}` | E1; E4; U2; NaN and infinity elements | NaN and `POSITIVE_INFINITY` preserved in result |
 | 9 | `{{Double.MAX_VALUE}, {Double.MIN_VALUE}}` | E1; E6; U3; UB and LB element values | `MAX_VALUE` and `MIN_VALUE` preserved in result |
 | 10 | `{{1.0, 2.0}, {3.0, 4.0}}` — check outer length | E1; E4; verify `result.length == 2` | `result.length == 2` |
