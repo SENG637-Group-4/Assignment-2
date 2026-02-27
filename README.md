@@ -66,7 +66,8 @@ The detailed descriptions of the test cases developed for each test method are p
 # 4 Test case result
 We totally run 120 unit test cases across 10 methods. Among 120, we observed 63 pass test cases and 57 failure unit cases. 0 error
 
-<img width="482" height="554" alt="image" src="https://github.com/user-attachments/assets/7dc4855e-5e8f-4498-99ae-aa0354e662b6" />
+<img width="457" height="600" alt="image" src="https://github.com/user-attachments/assets/7b975c22-15a2-4775-8809-166f6e8473e1" />
+
 
 ### Test Results for `contains(double value)`
 
